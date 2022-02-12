@@ -40,7 +40,7 @@
   word-wrap: break-word;
 }
 
-.lembrete_container p{
+.lembrete_container p {
   width: 24%;
   height: 5%;
   color: #155724;
@@ -49,6 +49,14 @@
   font-size: 19px;
   font-weight: bold;
   padding-top: 2px;
+}
+
+.Aviso {
+  text-align: center;
+  font-size: 40px;
+  font-weight: bold;
+  color: aliceblue;
+  padding: .5em;
 }
 
 /* color: #155724;

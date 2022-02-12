@@ -1,20 +1,48 @@
-import React from "react";
+import { useState } from "react";
 import "./App.css";
 import LembreInput from "./components/LembreInput";
-import LembreteCaixa from './components/LembreteCaixa';
-import Context from "./components/Context";
+import LembreteCaixa from "./components/LembreteCaixa";
+import { v4 as uuidv4 } from "uuid";
 
 function App() {
-  const [nome, setNome] = React.useState('');
-  
-  return (
-    <Context.Provider value={[nome,setNome]}>
-      <div>
-        <LembreInput />
+  const [items, setItems] = useState([]);
+  const [textV, setTextV] = useState("");
+  const [fisrtLemb, setFirstLemb] = useState(true);
 
-        {nome ? (<LembreteCaixa texto={nome}/>) : (<p>Não há nada aqui</p>)}
+  return (
+    <div>
+      <LembreInput
+        handleOnCHange={(e) => {
+          setTextV(e.target.value);
+        }}
+        handleSubmit={() => {
+          const novaMSG = { texto: textV, id: uuidv4() };
+          if (items.length + 1 <= 12) {
+            setItems([...items, novaMSG]);
+            setFirstLemb(false);
+          }
+        }}
+        clearHandle={() => {
+          setItems([]);
+          setTextV("");
+          setFirstLemb(true);
+        }}
+      />
+
+      <div>
+        {fisrtLemb === true ? (
+          <p className="Aviso">Digite seu primeiro Lembrete</p>
+        ) : (
+          items.map((item) => (
+            <LembreteCaixa texto={item.texto} key={item.id} />
+          ))
+        )}
+
+        {/* {items.map((item) => (
+          <LembreteCaixa texto={item.texto} key={item.id} />
+        ))} */}
       </div>
-    </Context.Provider>
+    </div>
   );
 }
 

@@ -1,20 +1,20 @@
-import {useContext} from 'react';
-import Context from './Context';
-
-function LembreInput(){
-    const [nome,setNome] = useContext(Context);
-
-    function sub(){
-        const texto = document.getElementById("textI")
-        setNome(texto.value)
-    }
-
-    return (
-        <div className="input_container">
-            <input type="text" id="textI" placeholder="Digite o nome do Lembrete"/>
-            <button type="button" onClick={sub}>Criar Lembrete</button>
-        </div>
-    )
+function LembreInput({ handleOnCHange, handleSubmit, clearHandle }) {
+  return (
+    <div className="input_container">
+      <input
+        onChange={handleOnCHange}
+        type="text"
+        id="textI"
+        placeholder="Digite o nome do Lembrete"
+      />
+      <button type="button" onClick={handleSubmit}>
+        Criar Lembrete
+      </button>
+      <button type="button" onClick={clearHandle}>
+        Limpar Lembretes
+      </button>
+    </div>
+  );
 }
 
-export default LembreInput
+export default LembreInput;
