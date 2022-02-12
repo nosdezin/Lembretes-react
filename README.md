@@ -6,4 +6,15 @@ A Branch principal(Main) foi a primeira tentativa de criar esse site de Lembrete
 
 É uma branch onde o todo o sistema de lembretes foi mudado e atualizado. Agora com a capacidade de guardar 12 lembretes. OBS: obviamente pode guardar mais lembretes mas nesse caso eu coloquei um limite de 12 objetos(lembretes)
 
+# Abrir o documento
+
+primeiro baixe as dependecias usando:
+``
+  npm i
+``
+
+depois abra o arquivo com:
+``npm start``
+
+
 <img src="https://img.shields.io/badge/React-20232A?style=for-the-badge&logo=react&logoColor=61DAFB"/>
